@@ -1049,29 +1049,49 @@ body.menu-open{overflow:hidden;}
 
 <script>
 (function(){
-  var ENDPOINT='https://formsubmit.co/ajax/contact@cleoliaservices.com';
-  var FALLBACK='Une erreur est survenue. Vous pouvez nous appeler au <a href="tel:0777339271">07 77 33 92 71</a> ou écrire à <a href="mailto:contact@cleoliaservices.com">contact@cleoliaservices.com</a>.';
+  var ENDPOINT='https://api.web3forms.com/submit';
+  var ACCESS_KEY='bdfd212c-8767-443a-bc1e-b14b878aa382';
+  var DEBUG=/[?&]debug/.test(location.search);
+
+  function esc(t){ return String(t).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+  function fallbackHtml(data, detail){
+    var lines=['Nom : '+(data.nom||''),'Prénom : '+(data.prenom||''),'Téléphone : '+(data.telephone||''),'Ville : '+(data.ville||''),'Email : '+(data.email||''),'Type : '+(data.type_prestation||data.besoin||''),'','Message : '+(data.message||'')];
+    var href='mailto:contact@cleoliaservices.com?subject='+encodeURIComponent('Demande de devis — '+(data.nom||''))+'&body='+encodeURIComponent(lines.join('\n'));
+    return 'L\'envoi automatique n\'a pas fonctionné. <a href="'+href+'"><strong>Cliquez ici pour nous écrire par email</strong></a> (votre demande est pré-remplie), ou appelez-nous au <a href="tel:0777339271">07 77 33 92 71</a>.'
+      + (DEBUG&&detail?'<br><small>Détail technique : '+esc(detail)+'</small>':'');
+  }
 
   function send(form, msgEl, extra, btns){
     var data={};
     new FormData(form).forEach(function(v,k){ data[k]=v; });
     for(var k in extra){ data[k]=extra[k]; }
-    data._subject='Cleolia Services — '+(data.mode||'Nouvelle demande')+(data.nom?' — '+data.nom:'');
-    data._template='table';
-    data._captcha='false';
+    if(data._honey){ form.reset(); msgEl.className='form-msg ok'; msgEl.textContent='Merci ! Votre demande a bien été envoyée. Cleolia Services vous répond sous 24h.'; return; }
+    var payload={};
+    for(var key in data){ if(key!=='_honey'){ payload[key]=data[key]; } }
+    payload.access_key=ACCESS_KEY;
+    payload.subject='Cleolia Services — '+(data.mode||'Nouvelle demande')+(data.nom?' — '+data.nom:'');
+    payload.from_name='Site Cleolia Services';
+    payload.name=((data.prenom?data.prenom+' ':'')+(data.nom||'')).trim();
+    if(!payload.email){ delete payload.email; } else { payload.replyto=payload.email; }
     msgEl.className='form-msg'; msgEl.textContent='';
     btns.forEach(function(b){ b.disabled=true; });
-    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-      .then(function(r){ return r.json().catch(function(){ return {}; }); })
+    if(ACCESS_KEY.indexOf('COLLE_ICI')===0){
+      msgEl.className='form-msg err'; msgEl.innerHTML=fallbackHtml(data,'Clé Web3Forms non configurée');
+      btns.forEach(function(b){ b.disabled=false; }); return;
+    }
+    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){ return r.json().catch(function(){ return {message:'Réponse illisible (HTTP '+r.status+')'}; }); })
       .then(function(j){
+        if(DEBUG&&window.console){ console.log('Web3Forms :',j); }
         var ok=(j.success===true||j.success==='true');
         if(ok){
           form.reset();
           msgEl.className='form-msg ok';
           msgEl.textContent='Merci ! Votre demande a bien été envoyée. Cleolia Services vous répond sous 24h.';
-        } else { throw new Error('fail'); }
+        } else { throw new Error(j.message||'success=false'); }
       })
-      .catch(function(){ msgEl.className='form-msg err'; msgEl.innerHTML=FALLBACK; })
+      .catch(function(err){ msgEl.className='form-msg err'; msgEl.innerHTML=fallbackHtml(data, err&&err.message); })
       .then(function(){ btns.forEach(function(b){ b.disabled=false; }); });
   }
 
