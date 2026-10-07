@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cleolia Services — Ménage professionnel à Vernon,  Yvelines et alentours</title>
-<meta name="description" content="Cleolia Services : ménage professionnel pour bureaux, restaurants, locations Airbnb et commerces à Vernon, dans les Yvelines et leurs alentours. Devis gratuit sous 24h.">
-<meta name="keywords" content="ménage professionnel Vernon, ménage Yvelines, entreprise de ménage bureaux, nettoyage restaurant, ménage Airbnb, société de nettoyage Vernon">
+<title>Cleolia Services — Ménage professionnel dans les Yvelines et l'Eure</title>
+<meta name="description" content="Cleolia Services : ménage professionnel pour bureaux, restaurants, locations Airbnb et commerces dans les Yvelines, l'Eure et leurs alentours. Devis gratuit sous 24h.">
+<meta name="keywords" content="ménage professionnel Yvelines, ménage professionnel Eure, entreprise de ménage bureaux, nettoyage restaurant, ménage Airbnb, société de nettoyage Eure">
 <link rel="canonical" href="https://www.cleoliaservices.com/">
 
 <meta property="og:type" content="business.business">
-<meta property="og:title" content="Cleolia Services — Ménage professionnel à Vernon, Yvelines et alentours">
+<meta property="og:title" content="Cleolia Services — Ménage professionnel dans les Yvelines et l'Eure">
 <meta property="og:description" content="Ménage professionnel pour bureaux, restaurants, locations Airbnb et commerces. Devis gratuit sous 24h.">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://www.cleoliaservices.com/">
@@ -26,7 +26,7 @@
   "email": "contact@cleoliaservices.com",
   "areaServed": [
     {"@type": "AdministrativeArea", "name": "Yvelines"},
-    {"@type": "City", "name": "Vernon"}
+    {"@type": "AdministrativeArea", "name": "Eure"}
   ],
   "priceRange": "€€"
 }
@@ -90,19 +90,21 @@ nav a.active{color:var(--blue);font-weight:500;}
   background:var(--navy);color:#fff;padding:10px 20px;border-radius:var(--radius);
   text-decoration:none;font-size:14px;font-weight:500;white-space:nowrap;
 }
-.nav-toggle{display:none;background:none;border:none;font-size:26px;color:inherit;cursor:pointer;line-height:1;padding:4px 8px;}
+.nav-toggle{display:none;background:none;border:none;color:inherit;cursor:pointer;width:44px;height:44px;padding:0;align-items:center;justify-content:center;}
+.nav-toggle svg{width:26px;height:26px;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;fill:none;}
 .nav-inner{position:relative;}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;height:100dvh;z-index:99999;background:var(--navy);flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:80px 24px 40px;overflow-y:auto;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{display:block;padding:12px 24px;font-family:'Fraunces',serif;font-size:26px;color:#fff;text-decoration:none;}
+.mobile-menu a:hover{color:#8ED0EE;}
+.mobile-menu .mm-call{margin-top:20px;padding:14px 28px;border:1px solid rgba(255,255,255,0.35);border-radius:10px;font-family:'Inter',sans-serif;font-size:16px;font-weight:500;}
+.mm-close{position:absolute;top:14px;right:16px;width:44px;height:44px;background:none;border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.mm-close svg{width:26px;height:26px;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;fill:none;}
+body.menu-open{overflow:hidden;}
 @media (max-width:860px){
-  nav ul{
-    display:none;position:absolute;top:100%;left:0;right:0;
-    flex-direction:column;background:var(--bg);padding:12px 32px;gap:0;
-    box-shadow:0 10px 20px rgba(0,0,0,0.08);z-index:10;
-  }
-  nav ul.open{display:flex;}
-  nav ul li{border-top:1px solid var(--line);}
-  nav ul li:first-child{border-top:none;}
-  nav ul a{display:block;padding:14px 0;color:var(--ink);}
-  .nav-toggle{display:block;}
+  .nav-inner{padding:12px 20px;}
+  .nav-toggle{display:flex;}
+  header nav{display:none;}
 }
 
 /* Page header banner (sub-pages) */
@@ -209,6 +211,8 @@ nav a.active{color:var(--blue);font-weight:500;}
   border-radius:14px;display:flex;align-items:center;justify-content:center;
 }
 .portrait svg{width:64px;height:64px;opacity:0.5;}
+.portrait{overflow:hidden;}
+.portrait svg.portrait-art{width:100%;height:100%;opacity:1;}
 .about-inner p{color:var(--ink-soft);margin-top:16px;}
 .about-inner h2{font-size:32px;}
 @media (max-width:760px){.about-inner{grid-template-columns:1fr;}}
@@ -295,7 +299,7 @@ nav a.active{color:var(--blue);font-weight:500;}
 .photo-header .nav-inner{background:transparent;border:none;}
 .photo-header nav a, .photo-header .logo-text, .photo-header .logo-text span{color:#fff;}
 .photo-header .nav-toggle{color:#fff;}
-.photo-header nav ul.open a{color:var(--ink);}
+.photo-header nav a{color:#fff;}
 .photo-header{position:static;background:transparent;border:none;backdrop-filter:none;}
 .photo-hero-body{position:relative;z-index:2;flex:1;display:flex;align-items:center;padding:40px 0 60px;}
 .photo-hero-inner{display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;width:100%;}
@@ -318,6 +322,7 @@ nav a.active{color:var(--blue);font-weight:500;}
 .devis-card .sub{font-size:13px;color:#B8C8D2;margin-bottom:20px;}
 .need-toggle{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
 .need-btn{
+  font-family:inherit;
   border:1.5px solid transparent;border-radius:10px;padding:12px 10px;background:#fff;
   display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;cursor:pointer;
 }
@@ -331,11 +336,33 @@ nav a.active{color:var(--blue);font-weight:500;}
 .devis-card .btn-row .btn{padding:12px 10px;text-align:center;font-size:13.5px;border:none;}
 .devis-card .btn-call{background:#AFCBE0;color:var(--navy);font-weight:500;border-radius:var(--radius);text-decoration:none;display:flex;align-items:center;justify-content:center;}
 .devis-card .btn-quote{background:var(--navy);color:#fff;font-weight:500;border-radius:var(--radius);text-decoration:none;display:flex;align-items:center;justify-content:center;}
+.devis-card button.btn{font-family:inherit;cursor:pointer;}
+.form-msg{font-size:13px;margin-top:12px;display:none;line-height:1.5;}
+.form-msg.ok{display:block;color:#8ED0EE;}
+.form-msg.err{display:block;color:#FFB4A8;}
+.form-msg a{color:inherit;text-decoration:underline;}
+.contact-inner .form-msg.ok{color:var(--blue);}
+.contact-inner .form-msg.err{color:#B5504A;}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
 .devis-card .btn-call:hover{background:#9BBFDA;}
 .devis-card .btn-quote:hover{background:#123A57;}
 
 /* Trust bar */
 .trust-section{padding:64px 0;}
+.tasks-head{text-align:center;max-width:52ch;margin:0 auto 40px;}
+.tasks-head h2{font-size:30px;}
+.tasks-head p{color:var(--ink-soft);margin-top:10px;font-size:15px;}
+.tasks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.task{display:flex;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 22px;transition:box-shadow 0.2s,transform 0.2s;}
+.task:hover{box-shadow:0 12px 24px rgba(15,35,52,0.08);transform:translateY(-2px);}
+.task .ico{width:46px;height:46px;border-radius:12px;background:#EAF3F7;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.task .ico svg{width:24px;height:24px;stroke:#2E86AB;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.task h3{font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:var(--navy);margin-bottom:2px;}
+.task p{font-size:13px;color:var(--ink-soft);line-height:1.45;}
+.tasks-note{text-align:center;font-size:13px;color:var(--ink-soft);margin-top:24px;}
+@media (max-width:860px){.tasks-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:560px){.tasks-grid{grid-template-columns:1fr;}.tasks-head h2{font-size:26px;}}
+
 .trust-inner{display:grid;grid-template-columns:0.6fr 1.4fr;gap:40px;align-items:center;}
 .trust-score{text-align:center;}
 .trust-score .num{font-family:'Fraunces',serif;font-size:52px;color:var(--navy);font-weight:600;}
@@ -445,6 +472,10 @@ nav a.active{color:var(--blue);font-weight:500;}
 .footer-grid a{font-size:13px;text-decoration:none;color:#CBDCE6;}
 .footer-grid a:hover{color:#fff;}
 .footer-bottom{padding-top:24px;text-align:center;font-size:12px;color:#8FADBE;}
+.footer-bottom a{color:#CBDCE6;text-decoration:underline;}
+.form-legal{font-size:11.5px;line-height:1.5;margin-top:12px;color:var(--ink-soft);}
+.devis-card .form-legal{color:#B8C8D2;}
+.form-legal a{color:inherit;text-decoration:underline;}
 @media (max-width:760px){.footer-grid{grid-template-columns:1fr 1fr;row-gap:32px;}}
 
 </style>
@@ -474,25 +505,15 @@ nav a.active{color:var(--blue);font-weight:500;}
         </ul>
       </nav>
       <a href="tel:0777339271" style="color:#fff;font-size:14px;font-weight:500;text-decoration:none;">07 77 33 92 71</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu">☰</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </header>
-  <script>
-    document.getElementById('nav-toggle').addEventListener('click', function(){
-      document.getElementById('nav-list').classList.toggle('open');
-    });
-    document.querySelectorAll('#nav-list a').forEach(function(link){
-      link.addEventListener('click', function(){
-        document.getElementById('nav-list').classList.remove('open');
-      });
-    });
-  </script>
 
   <div class="photo-hero-body">
     <div class="wrap photo-hero-inner">
       <div>
         <h1>Libérez votre esprit. Cleolia s'occupe de tout.</h1>
-        <p class="lead">Ménage professionnel pour bureaux, commerces, restaurants et locations, à Vernon, dans les Yvelines et leurs alentours.</p>
+        <p class="lead">Ménage professionnel pour bureaux, commerces, restaurants et locations, dans les Yvelines, l'Eure et leurs alentours.</p>
       </div>
 
       <div class="devis-card">
@@ -501,33 +522,35 @@ nav a.active{color:var(--blue);font-weight:500;}
         <div style="height:1px;background:rgba(255,255,255,0.15);margin-bottom:18px;"></div>
         <p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:12px;">Mon besoin</p>
 
-        <div class="need-toggle">
-          <div class="need-btn active">
-            <svg viewBox="0 0 60 60"><path d="M30,8 L36,26 L54,30 L36,34 L30,52 L24,34 L6,30 L24,26 Z" fill="#2E86AB"/></svg>
-            <span>Ménage régulier</span>
+        <form id="hero-form" novalidate>
+          <input type="hidden" name="besoin" id="hero-besoin" value="Ménage régulier">
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="need-toggle">
+            <button type="button" class="need-btn active" data-besoin="Ménage régulier">
+              <svg viewBox="0 0 60 60"><path d="M30,8 L36,26 L54,30 L36,34 L30,52 L24,34 L6,30 L24,26 Z" fill="#2E86AB"/></svg>
+              <span>Ménage régulier</span>
+            </button>
+            <button type="button" class="need-btn" data-besoin="Ménage ponctuel">
+              <svg viewBox="0 0 60 60"><path d="M18,10 L45,50" stroke="#2E86AB" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M35,40 L14,52 L20,58 L41,46 Z" fill="#2E86AB"/></svg>
+              <span>Ménage ponctuel</span>
+            </button>
           </div>
-          <div class="need-btn">
-            <svg viewBox="0 0 60 60"><path d="M18,10 L45,50" stroke="#2E86AB" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M35,40 L14,52 L20,58 L41,46 Z" fill="#2E86AB"/></svg>
-            <span>Ménage ponctuel</span>
+
+          <div class="field"><input type="text" name="nom" placeholder="Nom *" aria-label="Nom" required></div>
+          <div class="field"><input type="text" name="prenom" placeholder="Prénom" aria-label="Prénom"></div>
+          <div class="field field-row">
+            <input type="tel" name="telephone" placeholder="Téléphone *" aria-label="Téléphone" required>
+            <input type="text" name="ville" placeholder="Ville ou code postal" aria-label="Ville ou code postal">
           </div>
-        </div>
+          <div class="field"><input type="email" name="email" placeholder="Adresse e-mail" aria-label="Adresse e-mail"></div>
 
-        <div class="field"><input type="text" placeholder="Nom"></div>
-        <div class="field"><input type="text" placeholder="Prénom"></div>
-        <div class="field field-row">
-          <input type="tel" placeholder="Téléphone">
-          <input type="text" placeholder="Ville ou code postal">
-        </div>
-        <div class="field"><input type="email" placeholder="Adresse e-mail"></div>
-        <label style="display:flex;align-items:flex-start;gap:8px;font-size:12px;color:#B8C8D2;margin-top:4px;">
-          <input type="checkbox" style="width:auto;margin-top:2px;">
-          Je veux recevoir les conseils et offres de Cleolia Services
-        </label>
-
-        <div class="btn-row">
-          <a href="#contact" class="btn btn-call">Je veux être appelé</a>
-          <a href="#contact" class="btn btn-quote">Je veux mon devis</a>
-        </div>
+          <div class="btn-row">
+            <button type="submit" name="mode" value="Souhaite être rappelé" class="btn btn-call">Je veux être appelé</button>
+            <button type="submit" name="mode" value="Demande de devis" class="btn btn-quote">Je veux mon devis</button>
+          </div>
+          <p class="form-legal">Vos données servent uniquement à répondre à votre demande. <a href="mentions-legales.html#donnees">En savoir plus</a>.</p>
+          <p class="form-msg" id="hero-msg" role="status"></p>
+        </form>
       </div>
     </div>
   </div>
@@ -535,28 +558,38 @@ nav a.active{color:var(--blue);font-weight:500;}
 
 <section class="trust-section">
   <div class="wrap">
-    <div class="trust-inner">
-      <div class="trust-score">
-        <div class="num">100%</div>
-        <div class="label">devis gratuits, sans engagement</div>
-        <div class="stars">★★★★★</div>
+    <div class="tasks-head">
+      <p class="eyebrow" style="text-align:center;">Notre prestation</p>
+      <h2>Ce que comprend chaque passage</h2>
+      <p>Un ménage complet, ajusté à votre activité et à votre fréquence d'intervention.</p>
+    </div>
+    <div class="tasks-grid">
+      <div class="task">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M7 3l9 15"/><path d="M13 14l-7 4 2 3 8-3"/></svg></div>
+        <div><h3>Sols et surfaces</h3><p>Aspiration, lavage, dépoussiérage</p></div>
       </div>
-      <div class="review-cards">
-        <div class="review-card">
-          <p>Nos bureaux impeccables chaque matin.</p>
-          <div class="who"><span>Un client professionnel, bureaux</span><span class="stars">★★★★★</span></div>
-        </div>
-        <div class="review-card">
-          <p>Un ménage soigné entre chaque location.</p>
-          <div class="who"><span>Un propriétaire Airbnb</span><span class="stars">★★★★★</span></div>
-        </div>
-        <div class="review-card">
-          <p>Salle et cuisine nickel avant chaque service.</p>
-          <div class="who"><span>Un restaurateur</span><span class="stars">★★★★★</span></div>
-        </div>
+      <div class="task">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3C12 3 5 11 5 15a7 7 0 0014 0C19 11 12 3 12 3z"/></svg></div>
+        <div><h3>Sanitaires</h3><p>Nettoyage et désinfection</p></div>
+      </div>
+      <div class="task">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M12 4v16M4 12h16"/></svg></div>
+        <div><h3>Vitres et vitrines</h3><p>Surfaces vitrées sans traces</p></div>
+      </div>
+      <div class="task">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <div><h3>Cuisines et espaces repas</h3><p>Plans de travail, équipements</p></div>
+      </div>
+      <div class="task">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 6h16M9 6V4h6v2M6 6l1 14h10l1-14"/></svg></div>
+        <div><h3>Poubelles</h3><p>Vidage et remplacement des sacs</p></div>
+      </div>
+      <div class="task">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></svg></div>
+        <div><h3>Mobilier et poignées</h3><p>Bureaux, comptoirs, points de contact</p></div>
       </div>
     </div>
-    <p class="testimonial-note" style="text-align:center;">Avis d'exemple — à remplacer par les vrais retours clients dès les premières interventions.</p>
+    <p class="tasks-note">Le contenu exact de chaque passage est défini avec vous dans le devis.</p>
   </div>
 </section>
 
@@ -588,7 +621,7 @@ nav a.active{color:var(--blue);font-weight:500;}
       <div class="why-item">
         <svg viewBox="0 0 60 60" fill="none" stroke="#2E86AB" stroke-width="2.5"><path d="M30,10 C40,10 48,18 48,28 C48,42 30,54 30,54 C30,54 12,42 12,28 C12,18 20,10 30,10 Z" stroke-linejoin="round"/><circle cx="30" cy="27" r="7"/></svg>
         <h4>Secteur couvert</h4>
-        <p>Yvelines, Vernon et alentours</p>
+        <p>Yvelines, Eure et alentours</p>
       </div>
       <div class="why-item">
         <svg viewBox="0 0 60 60" fill="none" stroke="#2E86AB" stroke-width="2.5"><path d="M30,10 L48,18 L48,30 C48,42 40,50 30,54 C20,50 12,42 12,30 L12,18 Z" stroke-linejoin="round"/><path d="M22,30 L28,36 L40,22" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -770,8 +803,8 @@ nav a.active{color:var(--blue);font-weight:500;}
   <div class="wrap zone-inner">
     <div>
       <p class="eyebrow">Zone d'intervention</p>
-      <h2 style="font-size:28px;">Les Yvelines, Vernon et ses alentours</h2>
-      <p style="color:var(--ink-soft);margin-top:14px;">Cleolia Services intervient dans tout le département des Yvelines, ainsi qu'à Vernon et dans les communes alentour, dans un rayon d'environ 30 km.</p>
+      <h2 style="font-size:28px;">Les Yvelines, l'Eure et leurs alentours</h2>
+      <p style="color:var(--ink-soft);margin-top:14px;">Cleolia Services intervient dans le département des Yvelines et dans l'Eure, ainsi que dans les communes alentour.</p>
 
       <div class="zone-group-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="#2E86AB" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
@@ -783,10 +816,10 @@ nav a.active{color:var(--blue);font-weight:500;}
 
       <div class="zone-group-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="#2E86AB" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
-        Vernon et ses alentours
+        Dans l'Eure et alentours
       </div>
       <div class="zone-list">
-        <span>Vernon</span><span>Saint-Marcel</span><span>Giverny</span><span>Pacy-sur-Eure</span>
+        <span>Vernon</span><span>Évreux</span><span>Gaillon</span><span>Pacy-sur-Eure</span><span>Les Andelys</span><span>Giverny</span>
       </div>
       <p class="note">Vous êtes en dehors de cette liste ? Contactez Cleolia Services pour vérifier la disponibilité.</p>
     </div>
@@ -800,7 +833,7 @@ nav a.active{color:var(--blue);font-weight:500;}
         <circle cx="130" cy="100" r="55" fill="none" stroke="#6FAAB5" stroke-width="1" stroke-dasharray="4 6"/>
         <circle cx="130" cy="100" r="6" fill="#1B4F72"/>
       </svg>
-      <p style="font-size:13px;color:var(--ink-soft);margin-top:8px;">Environ 30 km de rayon d'intervention</p>
+      <p style="font-size:13px;color:var(--ink-soft);margin-top:8px;">Yvelines, Eure et alentours</p>
     </div>
   </div>
 </section>
@@ -829,7 +862,33 @@ nav a.active{color:var(--blue);font-weight:500;}
 <section id="apropos" style="background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
   <div class="wrap about-inner">
     <div class="portrait">
-      <svg viewBox="0 0 60 60"><circle cx="30" cy="22" r="12" fill="#1B4F72"/><path d="M10,54 C10,38 50,38 50,54" fill="#1B4F72"/></svg>
+      <svg class="portrait-art" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration : une professionnelle du ménage vue de dos, portant un haut Cleolia Services">
+        <rect x="248" y="50" width="120" height="190" rx="6" fill="#FFFFFF" opacity="0.55"/>
+        <line x1="308" y1="50" x2="308" y2="240" stroke="#DCE8EC" stroke-width="4"/>
+        <line x1="248" y1="145" x2="368" y2="145" stroke="#DCE8EC" stroke-width="4"/>
+        <rect x="0" y="430" width="400" height="70" fill="#CFE0E8"/>
+        <ellipse cx="200" cy="440" rx="110" ry="10" fill="#0F2334" opacity="0.12"/>
+        <rect x="163" y="330" width="32" height="102" rx="9" fill="#1B2D3D"/>
+        <rect x="205" y="330" width="32" height="102" rx="9" fill="#1B2D3D"/>
+        <ellipse cx="179" cy="434" rx="24" ry="8" fill="#0F2334"/>
+        <ellipse cx="221" cy="434" rx="24" ry="8" fill="#0F2334"/>
+        <line x1="274" y1="150" x2="274" y2="432" stroke="#8A6B4A" stroke-width="7" stroke-linecap="round"/>
+        <path d="M242,432 L306,432 L298,450 L250,450 Z" fill="#6FAAB5"/>
+        <rect x="188" y="138" width="24" height="32" rx="7" fill="#D9AE90"/>
+        <path d="M140,205 C140,176 162,166 200,166 C238,166 260,176 260,205 L268,342 L132,342 Z" fill="#1B4F72"/>
+        <path d="M141,196 C126,214 118,262 120,322 L143,326 C147,272 153,232 159,206 Z" fill="#1B4F72"/>
+        <path d="M259,196 C274,214 282,252 281,298 L262,298 C259,262 253,232 245,206 Z" fill="#1B4F72"/>
+        <circle cx="131" cy="334" r="12" fill="#D9AE90"/>
+        <circle cx="272" cy="306" r="12" fill="#D9AE90"/>
+        <circle cx="200" cy="118" r="35" fill="#3A2A22"/>
+        <circle cx="200" cy="80" r="17" fill="#3A2A22"/>
+        <path d="M200,208 L208,228 L228,236 L208,244 L200,264 L192,244 L172,236 L192,228 Z" fill="#8ED0EE"/>
+        <text x="200" y="291" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="16" fill="#FFFFFF">CLEOLIA</text>
+        <text x="200" y="306" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8.5" letter-spacing="3" fill="#8ED0EE">SERVICES</text>
+        <path d="M330,150 L335,164 L349,169 L335,174 L330,188 L325,174 L311,169 L325,164 Z" fill="#B08D57"/>
+        <path d="M92,262 L96,273 L107,277 L96,281 L92,292 L88,281 L77,277 L88,273 Z" fill="#B08D57" opacity="0.85"/>
+        <path d="M338,336 L341,344 L349,347 L341,350 L338,358 L335,350 L327,347 L335,344 Z" fill="#8ED0EE"/>
+      </svg>
     </div>
     <div>
       <p class="eyebrow">À propos</p>
@@ -878,10 +937,11 @@ nav a.active{color:var(--blue);font-weight:500;}
     <div>
       <p class="eyebrow">Contact</p>
       <h2 style="font-size:28px;">Demander un devis ou un rendez-vous</h2>
-      <form style="margin-top:24px;" id="devis-form">
-        <div class="field"><label for="nom2">Nom</label><input type="text" id="nom2" name="nom" placeholder="Votre nom" required></div>
-        <div class="field"><label for="tel2">Téléphone</label><input type="tel" id="tel2" name="telephone" placeholder="07 77 33 92 71" required></div>
-        <div class="field"><label for="email2">Email</label><input type="email" id="email2" name="email" placeholder="vous@exemple.fr" required></div>
+      <form style="margin-top:24px;" id="devis-form" novalidate>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="field"><label for="nom2">Nom *</label><input type="text" id="nom2" name="nom" placeholder="Votre nom" required></div>
+        <div class="field"><label for="tel2">Téléphone *</label><input type="tel" id="tel2" name="telephone" placeholder="07 77 33 92 71" required></div>
+        <div class="field"><label for="email2">Email</label><input type="email" id="email2" name="email" placeholder="vous@exemple.fr"></div>
         <div class="field">
           <label for="type2">Type de prestation</label>
           <select id="type2" name="type_prestation">
@@ -892,34 +952,10 @@ nav a.active{color:var(--blue);font-weight:500;}
           </select>
         </div>
         <div class="field"><label for="msg2">Votre besoin</label><textarea id="msg2" name="message" placeholder="Surface, fréquence, disponibilités..."></textarea></div>
-        <button type="submit" class="btn btn-primary" style="border:none;cursor:pointer;">Envoyer la demande</button>
-        <p style="font-size:12px;color:var(--ink-soft);margin-top:10px;">En cliquant, votre messagerie s'ouvre avec la demande pré-remplie — il ne restera qu'à cliquer sur "envoyer".</p>
+        <button type="submit" class="btn btn-primary" style="border:none;cursor:pointer;" id="contact-submit">Envoyer la demande</button>
+        <p class="form-legal">Vos données servent uniquement à répondre à votre demande. <a href="mentions-legales.html#donnees">En savoir plus</a>.</p>
+        <p class="form-msg" id="contact-msg" role="status"></p>
       </form>
-      <script>
-        document.getElementById('devis-form').addEventListener('submit', function(e){
-          e.preventDefault();
-          var form = e.target;
-          var nom = form.nom.value;
-          var tel = form.telephone.value;
-          var email = form.email.value;
-          var type = form.type_prestation.value;
-          var message = form.message.value;
-
-          var subject = 'Demande de devis — ' + nom;
-          var body =
-            'Nom : ' + nom + '\n' +
-            'Téléphone : ' + tel + '\n' +
-            'Email : ' + email + '\n' +
-            'Type de prestation : ' + type + '\n\n' +
-            'Message :\n' + message;
-
-          var mailtoUrl = 'mailto:contact@cleoliaservices.com'
-            + '?subject=' + encodeURIComponent(subject)
-            + '&body=' + encodeURIComponent(body);
-
-          window.location.href = mailtoUrl;
-        });
-      </script>
     </div>
     <div class="contact-info">
       <div class="item">
@@ -932,7 +968,7 @@ nav a.active{color:var(--blue);font-weight:500;}
       </div>
       <div class="item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
-        <div><h4>Secteur</h4><p>Yvelines, Vernon et alentours</p></div>
+        <div><h4>Secteur</h4><p>Yvelines, Eure et alentours</p></div>
       </div>
       <p class="note">Réponse sous 24h ouvrées.</p>
     </div>
@@ -946,15 +982,11 @@ nav a.active{color:var(--blue);font-weight:500;}
         <svg viewBox="0 0 200 200"><path d="M95,45 L108,88 L151,101 L108,114 L95,157 L82,114 L39,101 L82,88 Z" fill="#8ED0EE"/></svg>
         <span>Cleolia Services</span>
       </div>
-      <div class="social-row">
-        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9.3c0-.2.1-.3.3-.3z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-      </div>
     </div>
     <div class="footer-grid">
       <div>
         <h4>Cleolia Services</h4>
-        <p>Ménage professionnel pour bureaux, restaurants, locations Airbnb et commerces, à Vernon, dans les Yvelines et leurs alentours. Sérieux, discrétion et ponctualité à chaque intervention.</p>
+        <p>Ménage professionnel pour bureaux, restaurants, locations Airbnb et commerces, dans les Yvelines, l'Eure et leurs alentours. Sérieux, discrétion et ponctualité à chaque intervention.</p>
       </div>
       <div>
         <h4>Prestations</h4>
@@ -979,13 +1011,108 @@ nav a.active{color:var(--blue);font-weight:500;}
         <ul>
           <li><a href="tel:0777339271">07 77 33 92 71</a></li>
           <li><a href="mailto:contact@cleoliaservices.com">contact@cleoliaservices.com</a></li>
-          <li>Vernon, Yvelines et alentours</li>
+          <li>Yvelines, Eure et alentours</li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">© Cleolia Services — Tous droits réservés</div>
+    <div class="footer-bottom">© Cleolia Services — Tous droits réservés · <a href="mentions-legales.html">Mentions légales et confidentialité</a></div>
   </div>
 </footer>
 
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu principal">
+  <button class="mm-close" id="mm-close" aria-label="Fermer le menu"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <a href="#top">Accueil</a>
+  <a href="#services">Services</a>
+  <a href="#zone">Zone d'intervention</a>
+  <a href="#tarifs">Tarifs</a>
+  <a href="#apropos">À propos</a>
+  <a href="#contact">Contact</a>
+  <a class="mm-call" href="tel:0777339271">Appeler le 07 77 33 92 71</a>
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('nav-toggle'), menu=document.getElementById('mobile-menu');
+  function setMenu(open){
+    menu.classList.toggle('open',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    document.body.classList.toggle('menu-open',open);
+    if(open){ document.getElementById('mm-close').focus(); } else { btn.focus({preventScroll:true}); }
+  }
+  btn.addEventListener('click',function(){ setMenu(true); });
+  document.getElementById('mm-close').addEventListener('click',function(){ setMenu(false); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ menu.classList.remove('open'); btn.setAttribute('aria-expanded','false'); document.body.classList.remove('menu-open'); }); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&menu.classList.contains('open')) setMenu(false); });
+  window.addEventListener('resize',function(){ if(window.innerWidth>860&&menu.classList.contains('open')) setMenu(false); });
+})();
+</script>
+
+<script>
+(function(){
+  var ENDPOINT='https://formsubmit.co/ajax/contact@cleoliaservices.com';
+  var FALLBACK='Une erreur est survenue. Vous pouvez nous appeler au <a href="tel:0777339271">07 77 33 92 71</a> ou écrire à <a href="mailto:contact@cleoliaservices.com">contact@cleoliaservices.com</a>.';
+
+  function send(form, msgEl, extra, btns){
+    var data={};
+    new FormData(form).forEach(function(v,k){ data[k]=v; });
+    for(var k in extra){ data[k]=extra[k]; }
+    data._subject='Cleolia Services — '+(data.mode||'Nouvelle demande')+(data.nom?' — '+data.nom:'');
+    data._template='table';
+    data._captcha='false';
+    msgEl.className='form-msg'; msgEl.textContent='';
+    btns.forEach(function(b){ b.disabled=true; });
+    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){ return r.json().catch(function(){ return {}; }); })
+      .then(function(j){
+        var ok=(j.success===true||j.success==='true');
+        if(ok){
+          form.reset();
+          msgEl.className='form-msg ok';
+          msgEl.textContent='Merci ! Votre demande a bien été envoyée. Cleolia Services vous répond sous 24h.';
+        } else { throw new Error('fail'); }
+      })
+      .catch(function(){ msgEl.className='form-msg err'; msgEl.innerHTML=FALLBACK; })
+      .then(function(){ btns.forEach(function(b){ b.disabled=false; }); });
+  }
+
+  function valid(form, msgEl){
+    var nom=form.querySelector('[name=nom]'), tel=form.querySelector('[name=telephone]');
+    if(!nom.value.trim()||!tel.value.trim()){
+      msgEl.className='form-msg err'; msgEl.textContent='Merci de renseigner au moins votre nom et votre téléphone.'; return false;
+    }
+    return true;
+  }
+
+  // Formulaire du hero
+  var hero=document.getElementById('hero-form');
+  if(hero){
+    var besoin=document.getElementById('hero-besoin');
+    hero.querySelectorAll('.need-btn').forEach(function(b){
+      b.addEventListener('click',function(){
+        hero.querySelectorAll('.need-btn').forEach(function(x){ x.classList.remove('active'); });
+        b.classList.add('active'); besoin.value=b.getAttribute('data-besoin');
+      });
+    });
+    hero.addEventListener('submit',function(e){
+      e.preventDefault();
+      var msg=document.getElementById('hero-msg');
+      if(!valid(hero,msg)) return;
+      var mode=(e.submitter&&e.submitter.value)||'Demande de devis';
+      send(hero,msg,{mode:mode},Array.prototype.slice.call(hero.querySelectorAll('button[type=submit]')));
+    });
+  }
+
+  // Formulaire de contact
+  var contact=document.getElementById('devis-form');
+  if(contact){
+    contact.addEventListener('submit',function(e){
+      e.preventDefault();
+      var msg=document.getElementById('contact-msg');
+      if(!valid(contact,msg)) return;
+      send(contact,msg,{mode:'Demande de devis'},[document.getElementById('contact-submit')]);
+    });
+  }
+})();
+</script>
 </body>
 </html>
